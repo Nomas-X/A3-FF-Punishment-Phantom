@@ -90,15 +90,20 @@ private _logPvP = {
 };
 
 ///////////////Checks if is FF//////////////
-private _exemption = switch (true) do {  // ~0.012 ms for all false cases
-    case (!FFPP_FFPunEnabled):                                          {"FF PUNISH IS DISABLED"};
-    case (!isMultiplayer):                                                  {"IS NOT MULTIPLAYER"};
-    case ("HC" in (getPlayerUID _instigator)):                              {"FF BY HC"};  // Quick & reliable check
-    case (!(isPlayer _instigator)):                                         {"FF BY AI"};
-    case (_vehicle isEqualTo (vehicle _victim)):                            {"IN SAME VEHICLE"};  // Also fulfils role of checking whether the instigator and victim is same person.
-    case (!((side group _victim) isEqualTo (side group _instigator))):      {call _logPvP; "DIFFERENT GROUP SIDES"};
-    case (!((side _victim) isEqualTo (side _instigator))):                  {call _logPvP; "DIFFERENT UNIT SIDES"};
-    default                                                                 {""};
+private _exemption = "";
+if (_victim isKindOf "Man") then {
+        _exemption = switch (true) do {
+        case (_vehicle isEqualTo (vehicle _victim)):                        {"IN SAME VEHICLE"};  // Also fulfils role of checking whether the instigator and victim is same person.
+        case (!((side group _victim) isEqualTo (side group _instigator))):  {call _logPvP; "DIFFERENT GROUP SIDES"};
+        default                                                             {_exemption};
+    };
+};
+_exemption = switch (true) do {  // ~0.012 ms for all false cases
+    case (!FFPP_FFPunEnabled):                  {"FF PUNISH IS DISABLED"};
+    case (!isMultiplayer):                      {"IS NOT MULTIPLAYER"};
+    case ("HC" in (getPlayerUID _instigator)):  {"FF BY HC"};  // Quick & reliable check
+    case (!(isPlayer _instigator)):             {"FF BY AI"};
+    default                                     {_exemption};
 };
 if (!(_exemption isEqualTo "")) exitWith {
     format["NOT FF, %1", _exemption];
