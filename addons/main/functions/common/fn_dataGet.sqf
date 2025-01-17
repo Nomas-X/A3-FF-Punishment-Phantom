@@ -1,11 +1,11 @@
 /*
 Function:
-    FFPP_fnc_punishment_dataGet
+    FFPP_fnc_dataGet
 
 Description:
     1. Gets values of specified keys in a UID entry;
     2. Or Gets all key pairs in a UID entry;
-    3. Or Gets all UID entries from _punishment_dataNamespace.
+    3. Or Gets all UID entries from _dataNamespace.
 
 Scope:
     <ANY>
@@ -32,7 +32,7 @@ Returns 2:
     <ARRAY<KEYPAIR>> List of all Key pairs in specified UID.
 
 Returns 3:
-    <ARRAY<STRING>> List of all UID entries in _punishment_dataNamespace.
+    <ARRAY<STRING>> List of all UID entries in _dataNamespace.
 
 Returns "INVALID PARAMS":
     false;
@@ -40,9 +40,9 @@ Returns "INVALID PARAMS":
 Examples:
     private _keyPairs = [ ["test",0], ["420",0] ];
     private _UID = "123";
-    [_UID,_keyPairs] call FFPP_fnc_punishment_dataGet; // Return values from key "test" and "420" with default as 0, in UID "123"
-    [_UID,[]] call FFPP_fnc_punishment_dataGet;    // Return all [key,value]s in UID "123"
-    ["",[]] call FFPP_fnc_punishment_dataGet;      // Return all UID strings
+    [_UID,_keyPairs] call FFPP_fnc_dataGet; // Return values from key "test" and "420" with default as 0, in UID "123"
+    [_UID,[]] call FFPP_fnc_dataGet;    // Return all [key,value]s in UID "123"
+    ["",[]] call FFPP_fnc_dataGet;      // Return all UID strings
 
 Author: Caleb Serafin
 Date Updated: 27 May 2020
@@ -62,7 +62,7 @@ if (typeName _UID != "STRING") exitWith {
     false;
 };
 
-private _data_namespace = call FFPP_fnc_punishment_dataNamespace;
+private _data_namespace = call FFPP_fnc_dataNamespace;
 if (_UID == "") exitWith {
     allVariables _data_namespace;
 };

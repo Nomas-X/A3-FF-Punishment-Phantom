@@ -1,6 +1,6 @@
 /*
 Function:
-    FFPP_fnc_punishment_dataSet
+    FFPP_fnc_dataSet
 
 Description:
     Sets values of specified keys in a UID entry;
@@ -21,7 +21,7 @@ Returns:
 Examples:
     private _keyPairs = [ ["test","frost"], ["420",69], ["bob","ban"] ];
     private _UID = "123";
-    [_UID,_keyPairs] call FFPP_fnc_punishment_dataSet; // In UID "123": Sets values of key "test" to "frost" and "420" to 69
+    [_UID,_keyPairs] call FFPP_fnc_dataSet; // In UID "123": Sets values of key "test" to "frost" and "420" to 69
 
 Author: Caleb Serafin
 Date Updated: 27 May 2020
@@ -31,7 +31,7 @@ params [
     ["_UID",objNull,["UID string",objNull]],
     ["_keyPairs",[],[ [] ]]
 ];
-private _filename = "fn_punishment_dataSet.sqf";
+private _filename = "fn_dataSet.sqf";
 
 if (_keyPairs isEqualTo []) exitWith {
     [1, "INVALID PARAMS | No keys pairs", _filename] remoteExecCall ["FFPP_fnc_log",2,false];
@@ -40,12 +40,12 @@ if (_keyPairs isEqualTo []) exitWith {
 if (typeName _UID == "OBJECT" && {isPlayer _UID}) then {
     _UID = getPlayerUID _UID;
 };
-if !(typeName _UID == "STRING" || {_UID in ["","punishment_dataNamespace"]}) exitWith {
+if !(typeName _UID == "STRING" || {_UID in ["","dataNamespace"]}) exitWith {
     [1, format ["INVALID PARAMS | _UID=""%1""", _UID], _filename] remoteExecCall ["FFPP_fnc_log",2,false];
     false;
 };
 
-private _data_namespace = call FFPP_fnc_punishment_dataNamespace;
+private _data_namespace = call FFPP_fnc_dataNamespace;
 private _data_UID = _data_namespace getVariable [_UID, [] ];
 
 private _index = 0;

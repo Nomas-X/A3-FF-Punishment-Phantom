@@ -2,11 +2,11 @@
 
 /*
 Function:
-    FFPP_fnc_punishment_FF
+    FFPP_fnc_checkIncident
 
 Description:
     Checks if incident reported is indeed a rebel Friendly Fire event.
-    Refer to FFPP_fnc_punishment.sqf for actual punishment logic.
+    Refer to FFPP_fnc_notify.sqf for actual punishment logic.
     NOTE: When called from an Hit type of EH, use Example 2 in order to detect collisions.
 
 Scope:
@@ -26,13 +26,13 @@ Returns:
     <STRING> Either a exemption type or "PROSECUTED".
 
 Examples <OBJECT>:
-    [_instigator, _unit] remoteExec ["FFPP_fnc_punishment_FF",2,false];   // How it should be called from another object.
+    [_instigator, _unit] remoteExec ["FFPP_fnc_checkIncident",2,false];   // How it should be called from another object.
     // Unit Tests:
-    [player, objNull] remoteExec ["FFPP_fnc_punishment_release",2];          // Test self with no victim
-    [player, cursorObject] remoteExec ["FFPP_fnc_punishment_release",2];     // Test self with victim
+    [player, objNull] remoteExec ["FFPP_fnc_notify_release",2];          // Test self with no victim
+    [player, cursorObject] remoteExec ["FFPP_fnc_notify_release",2];     // Test self with victim
 
 Examples <ARRAY<OBJECT,OBJECT>>:
-    [[_instigator,_source], _unit] remoteExec ["FFPP_fnc_punishment_FF",2,false]; // How it should be called from an EH.
+    [[_instigator,_source], _unit] remoteExec ["FFPP_fnc_checkIncident",2,false]; // How it should be called from an EH.
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2020 Official AntiStasi Community
@@ -145,9 +145,9 @@ _exemption = switch (true) do {
 };
 if (_exemption isNotEqualTo "") exitWith {
     private _UID = getPlayerUID _instigator;
-    ([_UID,[["offenceTotal",0]]] call FFPP_fnc_punishment_dataGet) params ["_offenceTotal"];
+    ([_UID,[["offenceTotal",0]]] call FFPP_fnc_dataGet) params ["_offenceTotal"];
     _offenceTotal = _offenceTotal + 1;
-    [_UID,[["offenceTotal",_offenceTotal],["lastOffenceTime",floor serverTime]]] call FFPP_fnc_punishment_dataSet;
+    [_UID,[["offenceTotal",_offenceTotal],["lastOffenceTime",floor serverTime]]] call FFPP_fnc_dataSet;
 
     private _playerStats = format["%1 [%2] %3", name _instigator, getPlayerUID _instigator, _victimStats];
     [2, format ["%1 | %2", _exemption, _playerStats], _filename,true] call FFPP_fnc_log;
@@ -157,4 +157,4 @@ if (_exemption isNotEqualTo "") exitWith {
 };
 
 ///////////////Drop The Hammer//////////////
-[_instigator,_victim,_customMessage] call FFPP_fnc_punishment;
+[_instigator,_victim,_customMessage] call FFPP_fnc_notify;

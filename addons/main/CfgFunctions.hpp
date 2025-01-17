@@ -1,20 +1,20 @@
 class CfgFunctions
 {
-	class FFPP
+	class PREFIX
 	{
-		class Punishment
+		class common
 		{
-			file = "z\ffpp\addons\main\functions\punishment";
+			file = "z\ffpp\addons\main\functions\common";
 
-			class punishment_FF_init { postInit = 1; };
+			class postInit { postInit = 1; };
 
-			class punishment_dataGet {};
-			class punishment_dataNamespace {};
-			class punishment_dataRem {};
-			class punishment_dataSet {};
-			class punishment_FF_addEH {};
-			class punishment_FF {};
-			class punishment {};
+			class dataGet {};
+			class dataNamespace {};
+			class dataRem {};
+			class dataSet {};
+			class addEH {};
+			class checkIncident {};
+			class notify {};
 		};
 		class UI
 		{

@@ -2,11 +2,11 @@
 
 /*
 Function:
-    FFPP_fnc_punishment
+    FFPP_fnc_notify
 
 Description:
     Punishes the player given for FF.
-    Doesn't do the checking itself, refer to FFPP_fnc_punishment_FF.
+    Doesn't do the checking itself, refer to FFPP_fnc_checkIncident.
 
 Scope:
     <SERVER>
@@ -24,13 +24,13 @@ Returns:
     <STRING> Either an exemption type or a return from fn_punishment.sqf.
 
 Examples:
-    [_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["FFPP_fnc_punishment",2,false]; // How it should be called from another FFPP_fnc_punishment_FF.
+    [_instigator,_timeAdded,_offenceAdded,_victim] remoteExec ["FFPP_fnc_notify",2,false]; // How it should be called from another FFPP_fnc_checkIncident.
     // Unit Tests:
-    [cursorObject, 0, 0] remoteExec ["FFPP_fnc_punishment",2];                                 // Ping with FF Warning
-    [cursorObject,120, 1] remoteExec ["FFPP_fnc_punishment",2];                                // Punish, 120 additional seconds
-    [player,10, 1] remoteExec ["FFPP_fnc_punishment",2];                                       // Test Self Punish, 10 additional seconds
+    [cursorObject, 0, 0] remoteExec ["FFPP_fnc_notify",2];                                 // Ping with FF Warning
+    [cursorObject,120, 1] remoteExec ["FFPP_fnc_notify",2];                                // Punish, 120 additional seconds
+    [player,10, 1] remoteExec ["FFPP_fnc_notify",2];                                       // Test Self Punish, 10 additional seconds
     // Function that goes hand-in-hand
-    [cursorObject,"forgive"] remoteExec [FFPP_fnc_punishment_release,2]; // Forgive all sins
+    [cursorObject,"forgive"] remoteExec [FFPP_fnc_notify_release,2]; // Forgive all sins
 
 Author: Caleb Serafin
 License: MIT License, Copyright (c) 2020 Official AntiStasi Community
@@ -49,7 +49,7 @@ private _UID = getPlayerUID _instigator;
 private _name = name _instigator;
 private _currentTime = (floor serverTime);
 private _keyPairs = [["offenceTotal",0],["lastOffenceTime",_currentTime]];
-([_UID,_keyPairs] call FFPP_fnc_punishment_dataGet) params ["_offenceTotal","_lastTime"];
+([_UID,_keyPairs] call FFPP_fnc_dataGet) params ["_offenceTotal","_lastTime"];
 
 ///////////////Data validation//////////////
 _lastTime = (0 max _lastTime) min _currentTime;
@@ -60,7 +60,7 @@ _offenceTotal = _offenceTotal + 1;
 
 //////////Saves data to instigator//////////
 private _keyPairs = [["offenceTotal",_offenceTotal],["lastOffenceTime",_currentTime],["name",_name],["player",_instigator]];
-[_UID,_keyPairs] call FFPP_fnc_punishment_dataSet;
+[_UID,_keyPairs] call FFPP_fnc_dataSet;
 
 ///////////////Victim Notifier//////////////
 private _injuredComrade = "";

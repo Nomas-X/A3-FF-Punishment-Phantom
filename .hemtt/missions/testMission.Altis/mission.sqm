@@ -335,7 +335,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="No Radio";
 						isPlayable=1;
 						class Inventory
@@ -465,7 +465,7 @@ class Mission
 					{
 						skill=0.44999999;
 						rank="CORPORAL";
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="No Binos";
 						isPlayable=1;
 						class Inventory
@@ -595,7 +595,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="Radio Needs Prog";
 						isPlayable=1;
 						class Inventory
@@ -725,7 +725,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="Range Finder";
 						isPlayable=1;
 						class Inventory
@@ -860,7 +860,7 @@ class Mission
 					{
 						skill=0.44999999;
 						rank="CORPORAL";
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="Radio Watch";
 						isPlayable=1;
 						class Inventory
@@ -991,7 +991,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="Full Uniform";
 						isPlayable=1;
 						class Inventory
@@ -1137,7 +1137,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.40000001;
-						init="[this,true] call FFPP_fnc_punishment_FF_addEH;";
+						init="[this,true] call FFPP_fnc_addEH;";
 						description="UAV TERM";
 						isPlayable=1;
 						class Inventory
