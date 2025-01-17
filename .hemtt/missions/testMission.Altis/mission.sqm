@@ -54,7 +54,7 @@ addons[]=
 	"A3_Modules_F",
 	"ace_spectator",
 	"Vehicles_F_lxWS_APC_Wheeled_01",
-	"aet_start_in_vehicle"
+	"core_start_in_vehicle"
 };
 class AddonsMetaData
 {
@@ -189,10 +189,10 @@ class AddonsMetaData
 		};
 		class Item18
 		{
-			className="aet_start_in_vehicle";
-			name="AET Auxiliaries Start in Vehicle";
+			className="core_start_in_vehicle";
+			name="core Auxiliaries Start in Vehicle";
 			author="Antistasi Event Team";
-			url="https://github.com/Nomas-X/aet/";
+			url="https://github.com/Nomas-X/core/";
 		};
 	};
 };
@@ -811,7 +811,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={14699.598,17.91,16732.697};
-			name="AET_LZ1";
+			name="core_LZ1";
 			text="LZ";
 			type="mil_end";
 			id=46;
@@ -835,7 +835,7 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						name="AET_HELI_1D";
+						name="core_HELI_1D";
 					};
 					id=49;
 					type="B_Helipilot_F";
@@ -868,7 +868,7 @@ class Mission
 					side="West";
 					class Attributes
 					{
-						name="AET_HELI_1G";
+						name="core_HELI_1G";
 					};
 					id=51;
 					type="B_helicrew_F";
@@ -1011,7 +1011,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				name="AET_HELI_1";
+				name="core_HELI_1";
 			};
 			id=48;
 			type="B_Heli_Transport_01_F";
@@ -1308,7 +1308,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						name="AET_VE1D";
+						name="core_VE1D";
 					};
 					id=83;
 					type="B_crew_F";
@@ -1325,7 +1325,7 @@ class Mission
 					side="West";
 					class Attributes
 					{
-						name="AET_VE1G";
+						name="core_VE1G";
 					};
 					id=84;
 					type="B_crew_F";
@@ -1343,7 +1343,7 @@ class Mission
 					flags=2;
 					class Attributes
 					{
-						name="AET_VE1C";
+						name="core_VE1C";
 					};
 					id=85;
 					type="B_crew_F";
@@ -1411,7 +1411,7 @@ class Mission
 			flags=6;
 			class Attributes
 			{
-				name="AET_VE1";
+				name="core_VE1";
 			};
 			id=82;
 			type="B_APC_Wheeled_01_mortar_lxWS";
@@ -1442,16 +1442,16 @@ class Mission
 				position[]={14830.256,17.92,16404.742};
 				angles[]={0.08726646,0.08726646,0.08726646};
 			};
-			name="AET_MOD";
+			name="core_MOD";
 			areaSize[]={5,5,5};
 			areaIsRectangle=1;
 			id=80;
-			type="aet_module_startInVehicle";
+			type="core_module_startInVehicle";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="aet_module_startInVehicle_Commander";
+					property="core_module_startInVehicle_Commander";
 					expression="_this setVariable ['Commander',_value,true];";
 					class Value
 					{
@@ -1464,7 +1464,7 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="aet_module_startInVehicle_lockAISeats";
+					property="core_module_startInVehicle_lockAISeats";
 					expression="_this setVariable ['LockAISeats',_value,true];";
 					class Value
 					{
@@ -1477,20 +1477,20 @@ class Mission
 				};
 				class Attribute2
 				{
-					property="aet_module_startInVehicle_vehicle";
+					property="core_module_startInVehicle_vehicle";
 					expression="_this setVariable ['Vehicle',_value,true];";
 					class Value
 					{
 						class data
 						{
 							singleType="STRING";
-							value="AET_HELI_1";
+							value="core_HELI_1";
 						};
 					};
 				};
 				class Attribute3
 				{
-					property="aet_module_startInVehicle_allowDamage";
+					property="core_module_startInVehicle_allowDamage";
 					expression="_this setVariable ['AllowDamage',_value,true];";
 					class Value
 					{
@@ -1503,7 +1503,7 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="aet_module_startInVehicle_Cargo";
+					property="core_module_startInVehicle_Cargo";
 					expression="_this setVariable ['Cargo',_value,true];";
 					class Value
 					{
@@ -1516,20 +1516,20 @@ class Mission
 				};
 				class Attribute5
 				{
-					property="aet_module_startInVehicle_backupLZ";
+					property="core_module_startInVehicle_backupLZ";
 					expression="_this setVariable ['BackupLZ',_value,true];";
 					class Value
 					{
 						class data
 						{
 							singleType="STRING";
-							value="AET_LZ1";
+							value="core_LZ1";
 						};
 					};
 				};
 				class Attribute6
 				{
-					property="aet_module_startInVehicle_Gunner";
+					property="core_module_startInVehicle_Gunner";
 					expression="_this setVariable ['Gunner',_value,true];";
 					class Value
 					{
@@ -1542,7 +1542,7 @@ class Mission
 				};
 				class Attribute7
 				{
-					property="aet_module_startInVehicle_Driver";
+					property="core_module_startInVehicle_Driver";
 					expression="_this setVariable ['Driver',_value,true];";
 					class Value
 					{
@@ -1555,7 +1555,7 @@ class Mission
 				};
 				class Attribute8
 				{
-					property="aet_module_startInVehicle_units";
+					property="core_module_startInVehicle_units";
 					expression="_this setVariable ['Units',_value,true];";
 					class Value
 					{
@@ -1610,12 +1610,12 @@ class Mission
 			areaSize[]={5,5,5};
 			areaIsRectangle=1;
 			id=88;
-			type="aet_module_startInVehicle";
+			type="core_module_startInVehicle";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="aet_module_startInVehicle_Commander";
+					property="core_module_startInVehicle_Commander";
 					expression="_this setVariable ['Commander',_value,true];";
 					class Value
 					{
@@ -1628,7 +1628,7 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="aet_module_startInVehicle_lockAISeats";
+					property="core_module_startInVehicle_lockAISeats";
 					expression="_this setVariable ['LockAISeats',_value,true];";
 					class Value
 					{
@@ -1641,20 +1641,20 @@ class Mission
 				};
 				class Attribute2
 				{
-					property="aet_module_startInVehicle_vehicle";
+					property="core_module_startInVehicle_vehicle";
 					expression="_this setVariable ['Vehicle',_value,true];";
 					class Value
 					{
 						class data
 						{
 							singleType="STRING";
-							value="AET_VE1";
+							value="core_VE1";
 						};
 					};
 				};
 				class Attribute3
 				{
-					property="aet_module_startInVehicle_allowDamage";
+					property="core_module_startInVehicle_allowDamage";
 					expression="_this setVariable ['AllowDamage',_value,true];";
 					class Value
 					{
@@ -1667,7 +1667,7 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="aet_module_startInVehicle_Cargo";
+					property="core_module_startInVehicle_Cargo";
 					expression="_this setVariable ['Cargo',_value,true];";
 					class Value
 					{
@@ -1680,20 +1680,20 @@ class Mission
 				};
 				class Attribute5
 				{
-					property="aet_module_startInVehicle_backupLZ";
+					property="core_module_startInVehicle_backupLZ";
 					expression="_this setVariable ['BackupLZ',_value,true];";
 					class Value
 					{
 						class data
 						{
 							singleType="STRING";
-							value="AET_LZ1";
+							value="core_LZ1";
 						};
 					};
 				};
 				class Attribute6
 				{
-					property="aet_module_startInVehicle_Gunner";
+					property="core_module_startInVehicle_Gunner";
 					expression="_this setVariable ['Gunner',_value,true];";
 					class Value
 					{
@@ -1706,7 +1706,7 @@ class Mission
 				};
 				class Attribute7
 				{
-					property="aet_module_startInVehicle_Driver";
+					property="core_module_startInVehicle_Driver";
 					expression="_this setVariable ['Driver',_value,true];";
 					class Value
 					{
@@ -1719,7 +1719,7 @@ class Mission
 				};
 				class Attribute8
 				{
-					property="aet_module_startInVehicle_units";
+					property="core_module_startInVehicle_units";
 					expression="_this setVariable ['Units',_value,true];";
 					class Value
 					{
@@ -1744,12 +1744,12 @@ class Mission
 			areaSize[]={5,5,5};
 			areaIsRectangle=1;
 			id=89;
-			type="aet_module_startInVehicle";
+			type="core_module_startInVehicle";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="aet_module_startInVehicle_Commander";
+					property="core_module_startInVehicle_Commander";
 					expression="_this setVariable ['Commander',_value,true];";
 					class Value
 					{
@@ -1762,7 +1762,7 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="aet_module_startInVehicle_lockAISeats";
+					property="core_module_startInVehicle_lockAISeats";
 					expression="_this setVariable ['LockAISeats',_value,true];";
 					class Value
 					{
@@ -1775,20 +1775,20 @@ class Mission
 				};
 				class Attribute2
 				{
-					property="aet_module_startInVehicle_vehicle";
+					property="core_module_startInVehicle_vehicle";
 					expression="_this setVariable ['Vehicle',_value,true];";
 					class Value
 					{
 						class data
 						{
 							singleType="STRING";
-							value="AET_VE1222";
+							value="core_VE1222";
 						};
 					};
 				};
 				class Attribute3
 				{
-					property="aet_module_startInVehicle_allowDamage";
+					property="core_module_startInVehicle_allowDamage";
 					expression="_this setVariable ['AllowDamage',_value,true];";
 					class Value
 					{
@@ -1801,7 +1801,7 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="aet_module_startInVehicle_Cargo";
+					property="core_module_startInVehicle_Cargo";
 					expression="_this setVariable ['Cargo',_value,true];";
 					class Value
 					{
@@ -1814,7 +1814,7 @@ class Mission
 				};
 				class Attribute5
 				{
-					property="aet_module_startInVehicle_backupLZ";
+					property="core_module_startInVehicle_backupLZ";
 					expression="_this setVariable ['BackupLZ',_value,true];";
 					class Value
 					{
@@ -1827,7 +1827,7 @@ class Mission
 				};
 				class Attribute6
 				{
-					property="aet_module_startInVehicle_Gunner";
+					property="core_module_startInVehicle_Gunner";
 					expression="_this setVariable ['Gunner',_value,true];";
 					class Value
 					{
@@ -1840,7 +1840,7 @@ class Mission
 				};
 				class Attribute7
 				{
-					property="aet_module_startInVehicle_Driver";
+					property="core_module_startInVehicle_Driver";
 					expression="_this setVariable ['Driver',_value,true];";
 					class Value
 					{
@@ -1853,7 +1853,7 @@ class Mission
 				};
 				class Attribute8
 				{
-					property="aet_module_startInVehicle_units";
+					property="core_module_startInVehicle_units";
 					expression="_this setVariable ['Units',_value,true];";
 					class Value
 					{
