@@ -7,7 +7,7 @@ class CfgPatches {
 		name = ADDON_NAME;
 
         author = "$STR_ffpp_author";
-        authors[] = {"Frost'sBite [A3A]", "Nomas / Redwan S. [AET]"};
+        authors[] = {"Frost'sBite / Caleb Serafin [A3A]", "Nomas / Redwan S. [AET]"};
         
         url = "$STR_ffpp_URL";
 
