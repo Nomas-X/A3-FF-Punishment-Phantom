@@ -43,10 +43,10 @@ params [
 private _filename = "fn_punishment_FF.sqf";
 
 //////////////Enable Switches///////////////
-if (isNil QSET(enabled)) then { SET(enabled) = true; };
-if (isNil QSET(tellInstigator)) then { SET(tellInstigator) = false; };
-if (isNil QSET(tellVictim)) then { SET(tellVictim) = false; };
-if (isNil QSET(tellAdmin)) then { SET(tellAdmin) = true; };
+if (isNil "ffpp_set_notifications_enabled") then { ffpp_set_notifications_enabled = true; };
+if (isNil "ffpp_set_tellInstigator") then { ffpp_set_tellInstigator = false; };
+if (isNil "ffpp_set_tellVictim") then { ffpp_set_tellVictim = false; };
+if (isNil "ffpp_set_tellAdmin") then { ffpp_set_tellAdmin = true; };
 
 ///////////Checks if is Collision///////////
 private _isCollision = false;
@@ -66,18 +66,18 @@ _instigator setVariable ["FFPP_FFPunish_CD ", serverTime + 1, false];  // Will o
 private _victimStats = ["damaged systemPunished ",format ["damaged %1 ", name _victim]] select (_victim isKindOf "Man");
 _victimStats = [_victimStats,"[",["AI",getPlayerUID _victim] select (isPlayer _victim),"]"] joinString "";
 private _notifyVictim = {
-    if (!SET(tellVictim)) exitWith {};
+    if (!ffpp_set_tellVictim) exitWith {};
     if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["FFPP_fnc_customHint", _victim, false];};
 };
 private _notifyInstigator = {
     params ["_exempMessage"];
-    if (!SET(tellInstigator)) exitWith {};
+    if (!ffpp_set_tellInstigator) exitWith {};
     private _comradeStats = ["",["Injured comrade: ",name _victim,""] joinString ""] select (_victim isKindOf "Man");
     ["FF Warning", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["FFPP_fnc_customHint", _instigator, false];
 };
 private _notifyAdmin = {
     params ["_exemption","_offenceTotal"];
-    if (!SET(tellAdmin)) exitWith {};
+    if (!ffpp_set_tellAdmin) exitWith {};
     private _admin = [] call FFPP_fnc_getAdmin;
     if (!isNull _admin) then {
         ["FF Notification", [name _instigator," has FFed by ",_exemption,".<br/>Total Offences: ",str _offenceTotal, "<br/>Victim: ",name _victim] joinString ""] remoteExec ["FFPP_fnc_customHint",_admin,false];
@@ -99,7 +99,7 @@ if (_victim isKindOf "Man") then {
     };
 };
 _exemption = switch (true) do {  // ~0.012 ms for all false cases
-    case (!SET(enabled)):                  {"FF PUNISH IS DISABLED"};
+    case (!ffpp_set_notifications_enabled):                  {"FF PUNISH IS DISABLED"};
     case (!isMultiplayer):                      {"IS NOT MULTIPLAYER"};
     case ("HC" in (getPlayerUID _instigator)):  {"FF BY HC"};  // Quick & reliable check
     case (!(isPlayer _instigator)):             {"FF BY AI"};

@@ -37,10 +37,10 @@ params ["_instigator",["_victim",objNull],["_customMessage",""]];
 private _filename = "fn_punishment.sqf";
 
 //////////////Enable Switches///////////////
-if (isNil QSET(enabled)) then { SET(enabled) = true; };
-if (isNil QSET(tellInstigator)) then { SET(tellInstigator) = false; };
-if (isNil QSET(tellVictim)) then { SET(tellVictim) = false; };
-if (isNil QSET(tellAdmin)) then { SET(tellAdmin) = true; };
+if (isNil "ffpp_set_notifications_enabled") then { ffpp_set_notifications_enabled = true; };
+if (isNil "ffpp_set_tellInstigator") then { ffpp_set_tellInstigator = false; };
+if (isNil "ffpp_set_tellVictim") then { ffpp_set_tellVictim = false; };
+if (isNil "ffpp_set_tellAdmin") then { ffpp_set_tellAdmin = true; };
 
 //////////Fetches punishment values/////////
 private _UID = getPlayerUID _instigator;
@@ -65,7 +65,7 @@ private _injuredComrade = "";
 private _victimStats = "damaged systemPunished [AI]";
 if (_victim isKindOf "Man") then {
     _injuredComrade = ["Injured comrade: ",name _victim] joinString "";
-    if (SET(tellVictim) && isPlayer _victim) then {
+    if (ffpp_set_tellVictim && isPlayer _victim) then {
         ["FF Notification", [_name," hurt you!"] joinString ""] remoteExec ["FFPP_fnc_customHint", _victim, false];
     };
     private _UIDVictim = ["AI", getPlayerUID _victim] select (isPlayer _victim);
@@ -76,11 +76,11 @@ if (_victim isKindOf "Man") then {
 private _playerStats = ["Offences: ",str _offenceTotal,", Seconds since last FF: ",str _lastTime,", Custom message: ", _customMessage] joinString "";
 [2, ["WARNING | ",_name," [",_UID,"] ",_victimStats,", ",_playerStats] joinString "", _filename] call FFPP_fnc_log;
 
-if (SET(tellInstigator)) then {
+if (ffpp_set_tellInstigator) then {
     ["FF Warning", ["Watch your fire!",_injuredComrade,_customMessage] joinString "<br/>"] remoteExec ["FFPP_fnc_customHint", _instigator, false];
 };
 
-if (SET(tellAdmin)) then {
+if (ffpp_set_tellAdmin) then {
     private _admin = [] call FFPP_fnc_getAdmin;
     if (!isNull _admin) then {
         ["FF Notification", [_name," has been found guilty of FF.<br/>Total Offences: ",str _offenceTotal, "<br/>Victim: ",name _victim] joinString ""] remoteExec ["FFPP_fnc_customHint",_admin,false];

@@ -1,5 +1,3 @@
-#include "../script_component.hpp"
-
 /*	here, you put in your CBA Settings so they are available in the editor!
 [
 	
@@ -16,7 +14,7 @@
 */
 
 [
-	QSET(enabled),
+	"ffpp_set_notifications_enabled",
 	"CHECKBOX",
 	["Enable Notifications", "Should the friendly fire notifications be enabled? If not then the friendly fire incidents will still be logged to the RPT."],
 	["Friendly Fire Phantom Punishment"],
@@ -27,7 +25,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QSET(tellInstigator),
+	"ffpp_set_tellInstigator",
 	"CHECKBOX",
 	["Tell Instigator", "Should the instigator be notified of his friendly fire incident and who he damaged?"],
 	["Friendly Fire Phantom Punishment"],
@@ -38,7 +36,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QSET(tellVictim),
+	"ffpp_set_tellVictim",
 	"CHECKBOX",
 	["Tell Victim", "Should the victom be informed of his friendly fire incident and who damaged him?"],
 	["Friendly Fire Phantom Punishment"],
@@ -49,7 +47,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QSET(tellAdmin),
+	"ffpp_set_tellAdmin",
 	"CHECKBOX",
 	["Tell Admin", "Should the logged in admin be notified of the friendly fire incident? This includes the name of the instigator and victim."],
 	["Friendly Fire Phantom Punishment"],
