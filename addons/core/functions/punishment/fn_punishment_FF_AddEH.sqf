@@ -18,7 +18,7 @@ Parameters:
     <BOOLEAN> Whether it is intended to be added to AI.
 
 Returns:
-    <BOOLEAN> true if it hasn't crashed; false if ffpp_set_notifications_enabled is false or invalid params; nil if it has crashed.
+    <BOOLEAN> true if it hasn't crashed; false if SET(enabled) is false or invalid params; nil if it has crashed.
 
 Examples:
     if (hasInterface) then {
