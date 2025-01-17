@@ -1,10 +1,12 @@
+#include "..\..\script_component.hpp"
+
 /*
 Function:
     FFPP_fnc_addEH
 
 Description:
-    Adds EHs for Punishment FF check.
-    This is the default entry point for the Punishment Module.
+    Adds EHs for FF check.
+    This is the default entry point for the Module.
     Nothing else should be called from Antistasi.
 
 Scope:
@@ -53,5 +55,5 @@ _unit addEventHandler ["Hit", {
     [[_instigator,_source], _unit] remoteExecCall ["FFPP_fnc_checkIncident",2,false];
 }];
 
-[3,format["Punishment Event Handlers Added to: %1 | ID64: %2",name _unit, getPlayerUID _unit],_fileName] remoteExecCall ["FFPP_fnc_log",2,false];
+[3,format["Phantom Protocol Event Handlers Added to: %1 | ID64: %2",name _unit, getPlayerUID _unit],_fileName] remoteExecCall ["FFPP_fnc_log",2,false];
 true;

@@ -6,7 +6,7 @@ Function:
 
 Description:
     Checks if incident reported is indeed a rebel Friendly Fire event.
-    Refer to FFPP_fnc_notify.sqf for actual punishment logic.
+    Refer to FFPP_fnc_notify.sqf for actual notification logic.
     NOTE: When called from an Hit type of EH, use Example 2 in order to detect collisions.
 
 Scope:
@@ -42,7 +42,7 @@ params [
     ["_victim",objNull, [objNull]],
     ["_customMessage","", [""], [] ]
 ];
-private _filename = "fn_punishment_FF.sqf";
+private _filename = "fn_checkIncident.sqf";
 
 //////////////Enable Switches///////////////
 if (isNil QSET(enabled)) then { SET(enabled) = true; };
@@ -61,7 +61,7 @@ private _vehicle = vehicle _instigator;
 private _vehicleType = typeOf _vehicle;
 
 //////////////////Cool-down/////////////////
-if (_instigator getVariable ["FFPP_FFPunish_CD ", 0] > serverTime) exitWith {"PUNISHMENT COOL-DOWN ACTIVE"};
+if (_instigator getVariable ["FFPP_FFPunish_CD ", 0] > serverTime) exitWith {"PHANTOM PROTOCOL COOL-DOWN ACTIVE"};
 _instigator setVariable ["FFPP_FFPunish_CD ", serverTime + 1, false];  // Will only ever be evaluated from one machine.
 
 /////////////////Definitions////////////////
@@ -101,7 +101,7 @@ if (_victim isKindOf "Man") then {
     };
 };
 _exemption = switch (true) do {  // ~0.012 ms for all false cases
-    case (!SET(enabled)):                  {"FF PUNISH IS DISABLED"};
+    case (!SET(enabled)):                  {"FF Phantom IS DISABLED"};
     case (!isMultiplayer):                      {"IS NOT MULTIPLAYER"};
     case ("HC" in (getPlayerUID _instigator)):  {"FF BY HC"};  // Quick & reliable check
     case (!(isPlayer _instigator)):             {"FF BY AI"};
