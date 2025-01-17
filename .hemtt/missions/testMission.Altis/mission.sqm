@@ -12,7 +12,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14854.295,52.402916,16482.26};
+		pos[]={14856.266,52.402916,16461.744};
 		dir[]={0.075355358,-0.61557055,-0.78449875};
 		up[]={0.058858003,0.78808618,-0.61275053};
 		aside[]={-0.99543971,-5.2002724e-07,-0.095617324};
@@ -172,6 +172,8 @@ class Mission
 		forecastRain=1;
 		rainForced=1;
 		lightningsForced=1;
+		wavesForced=1;
+		windForced=1;
 		year=2035;
 		month=6;
 		hour=20;

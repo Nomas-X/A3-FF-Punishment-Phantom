@@ -4,7 +4,7 @@ class CfgFunctions
 	{
 		class Punishment
 		{
-			file = "z\ffpp\addons\core\functions\punishment";
+			file = "z\ffpp\addons\main\functions\punishment";
 
 			class punishment_FF_init { postInit = 1; };
 
@@ -18,12 +18,12 @@ class CfgFunctions
 		};
 		class UI
 		{
-			file = "z\ffpp\addons\core\functions\ui";
+			file = "z\ffpp\addons\main\functions\ui";
 			class customHint {};
 		};
 		class Utility
 		{
-			file = "z\ffpp\addons\core\functions\utility";
+			file = "z\ffpp\addons\main\functions\utility";
 			class getAdmin {};
 			class log {};
 		};

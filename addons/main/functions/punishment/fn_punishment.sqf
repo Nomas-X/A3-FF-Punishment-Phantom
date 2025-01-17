@@ -55,7 +55,7 @@ private _keyPairs = [["offenceTotal",0],["lastOffenceTime",_currentTime]];
 _lastTime = (0 max _lastTime) min _currentTime;
 _offenceTotal = ceil (0 max _offenceTotal);
 
-//////////////FF score addition/////////////
+//////////////FF smain addition/////////////
 _offenceTotal = _offenceTotal + 1;
 
 //////////Saves data to instigator//////////
