@@ -40,7 +40,7 @@
 [
 	QSET(tellVictim),
 	"CHECKBOX",
-	["Tell Victim", "Should the victom be informed of his friendly fire incident and who damaged him?"],
+	["Tell Victim", "Should the victim be informed of his friendly fire incident and who damaged him?"],
 	["Friendly Fire Phantom Protocol"],
 	true,
 	1,
