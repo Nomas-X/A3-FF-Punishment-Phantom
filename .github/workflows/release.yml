@@ -38,7 +38,7 @@ jobs:
             itemId: '3409227201'
             contentPath: './@FriendlyFirePhantomProtocol-${{ env.VERSION }}'
             changelog: |
-              https://github.com/official-antistasi-community/A3-FF-Punishment-Phantom/releases/tag/v${{ env.VERSION }}
+              https://github.com/official-antistasi-community/A3-FF-Punishment-Phantom/releases/tag/${{ env.VERSION }}
 
               ${{ github.event.release.body }}
           env:
